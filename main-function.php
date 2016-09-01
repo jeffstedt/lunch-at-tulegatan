@@ -32,7 +32,7 @@ $currentDate = date('Y/m/d', strtotime($currentDate));;
     $lunchStart = "15:30:00";
     $lunchEnd   = "16:00:00";
 
-  echo "Countdown target : <b>" . $currentDate . " " . $lunchEnd . "</b>";
+  echo "Countdown target: <b>" . $currentDate . " " . $lunchStart . "</b>";
   echo "<br>";
 
       // If weekday is between 1 and 6 display COUNTDOWN

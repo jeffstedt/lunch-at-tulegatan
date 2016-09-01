@@ -55,5 +55,5 @@ function updateClock ( )
 
 $(document).ready(function()
 {
-   setInterval('updateClock()', 1000);
+   setInterval('updateClock()', 0);
 });
