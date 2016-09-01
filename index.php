@@ -19,69 +19,21 @@
     <![endif]-->
   </head>
   <body>
+
     <h1>När är det lunch?</h1>
 
-    <div class="ajax">
-    <?php
-
-    // SET TIMEZONE
-    date_default_timezone_set('Europe/Stockholm');
-    // SAVE WEEKDAY AND CLOCK IN VARIABLES
-    $weekday = date("w");
-    $clock = date('H:i');
-    $clock=date('H:i', strtotime($clock));;
-
-    echo "the clock is: <b>";
-    echo($clock);
-    echo "</b><br>";
-
-    echo "current weekday: <b>";
-    echo($weekday);
-    echo "</b><br>";
-
-    $currentDate = date('Y/m/d');
-    $currentDate = date('Y/m/d', strtotime($currentDate));;
-
-
-        //DATE INTERVAL FOR COUNTDOWN
-        $timerStart = "09:00:00";
-        $timerEnd   = "14:00:00";
-
-        // DATE INTERVAL FOR LUNCH
-        $lunchStart = "11:30:00";
-        $lunchEnd   = "14:00:00";
-
-      echo "Countdown target : <b>" . $currentDate . " " . $lunchEnd . "</b>";
-      echo "<br>";
-
-          // If weekday is between 1 and 6 display COUNTDOWN
-    	if ($weekday > 0 && $weekday < 6) {
-
-              // If clock it between $timerStart and $timer display Google Api
-          if  ( ($clock > $timerStart) && ($clock < $timerEnd) ) {
-              echo "<br> Show COUNTDOWN<br>";
-              echo '<div id="clock"></div>';
-
-              // If clock is between $lunchStart and $lunchEnd disyplay Google Api
-              if ( ($clock > $lunchStart) && ($clock < $lunchEnd) )
-                echo "<br> Show GOOGLE API";
-
-           }
-
-
-      // If not a weekday, display dont do anything abow
-    	} else {
-        echo "det är helg!";
-    	}
-
-
-     ?>
+    <?php include 'main-function.php' ?>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- MAIN JS -->
+    <script src="js/main.js"></script>
+
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 
+    <!-- Countdown JS -->
     <script src="js/jquery.countdown.min.js"></script>
 
     <script type="text/javascript">
@@ -93,6 +45,6 @@
       + '<span>%S</span> sec'));
     });
     </script>
-    </div> <!-- end of AJAX -->
+
   </body>
 </html>
