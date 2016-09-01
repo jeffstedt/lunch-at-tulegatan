@@ -9,6 +9,7 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,7 +19,55 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <h1>Hello, lunch!</h1>
+
+    <?php
+
+    // SET TIMEZONE
+    date_default_timezone_set('Europe/Stockholm');
+    // SAVE WEEKDAY AND CLOCK IN VARIABLES
+    $weekday = date("w");
+    $clock = date('H:i');
+    $clock=date('H:i', strtotime($clock));;
+
+    echo "the clock is: ";
+    echo($clock);
+    echo "<br>";
+
+    echo "current weekday: ";
+    echo($weekday);
+    echo "<br>";
+
+        //DATE INTERVAL FOR COUNTDOWN
+        $timerStart = "09:00";
+        $timerEnd = "14:00";
+
+        // DATE INTERVAL FOR LUNCH
+        $lunchStart = "11:00";
+        $lunchEnd = "15:00";
+
+          // If weekday is between 1 and 6 display COUNTDOWN
+    	if ($weekday > 0 && $weekday < 6) {
+
+              // If clock it between $timerStart and $timer display Google Api
+          if  ( ($clock > $timerStart) && ($clock < $timerEnd) ) {
+              echo "<br> Show COUNTDOWN";
+
+              // If clock is between $lunchStart and $lunchEnd disyplay Google Api
+              if ( ($clock > $lunchStart) && ($clock < $lunchEnd) )
+                echo "<br> Show GOOGLE API";
+
+           }
+
+
+      // If not a weekday, display dont do anything abow
+    	} else {
+        echo "det är helg!";
+    	}
+
+
+
+     ?>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
